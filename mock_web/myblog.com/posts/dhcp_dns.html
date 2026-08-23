@@ -1,0 +1,37 @@
+<html>
+<head>
+  <title>DHCP & DNS Demystified</title>
+  <style>
+    body { background-color: #0b1329; color: #cbd5e1; font-family: monospace; }
+    h1 { color: #38bdf8; }
+    h2 { color: #f43f5e; }
+    .code-block { background-color: #0f172a; color: #34d399; padding: 10px; }
+    a { color: #60a5fa; }
+  </style>
+</head>
+<body>
+  <h1>Demystifying DHCP and DNS Protocols</h1>
+  <p><a href="http://myblog.com/">&larr; Back to Blog Home</a></p>
+  <hr>
+  
+  <p>To understand the internet, we must understand how nodes join networks. This happens in two steps:</p>
+  
+  <h2>1. DHCP: The Handshake (DORA)</h2>
+  <p>Before a client can send IP packets, it needs a leased IP. It sends a UDP broadcast searching for a server:</p>
+  <div class="code-block">
+    Client -> DISCOVER (Broadcast)<br>
+    Server -> OFFER (Proposed IP)<br>
+    Client -> REQUEST (Claim IP)<br>
+    Server -> ACK (Confirm Lease)
+  </div>
+  <p>This four-way handshake is called DORA.</p>
+  
+  <h2>2. DNS: The Translator</h2>
+  <p>Computers communicate via IP addresses (like 127.0.0.1), but humans prefer domains (like asgsearch.local). The DNS translates domains to IPs over UDP port 53. The client queries the domain, and the server returns the IP record.</p>
+  
+  <p>Once DNS returns the IP, the browser opens a TCP socket connection (on port 80/443 or a proxy port like 8080) to fetch the website payload.</p>
+  
+  <hr>
+  <p>Read about other technology news on <a href="http://news.com/">News Portal</a>.</p>
+</body>
+</html>

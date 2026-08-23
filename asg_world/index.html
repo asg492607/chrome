@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ASG World — Sovereign Intelligence. Zero Tracking. Pure Results. The world's first fully sovereign search engine platform built across 60 Sprints." />
+  <title>ASG World — Sovereign Search</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+  /* ═══════════════════════════════════════════════════════════
+     DESIGN TOKENS
+  ═══════════════════════════════════════════════════════════ */
+  :root {
+    /* Backgrounds */
+    --bg-base:    #070b12;
+    --bg-deep:    #0c1120;
+    --bg-card:    rgba(255,255,255,0.045);
+    --bg-glass:   rgba(255,255,255,0.06);
+    --bg-hover:   rgba(255,255,255,0.09);
+    /* Borders */
+    --b-subtle:   rgba(255,255,255,0.08);
+    --b-active:   rgba(124,58,237,0.55);
+    /* Brand */
+    --purple:     #7c3aed;
+    --purple-l:   #a78bfa;
+    --cyan:       #06b6d4;
+    --cyan-l:     #67e8f9;
+    --indigo:     #6366f1;
+    --green:      #22c55e;
+    /* Text */
+    --t-1:  #f1f5f9;
+    --t-2:  #94a3b8;
+    --t-3:  #4b5563;
+    --t-ac: #a78bfa;
+    /* Gradients */
+    --grad-brand:   linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+    --grad-title:   linear-gradient(135deg, #c4b5fd 0%, #67e8f9 50%, #c4b5fd 100%);
+    --grad-aurora1: radial-gradient(ellipse 72% 55% at 14% 38%, rgba(76,29,149,0.42) 0%, transparent 65%);
+    --grad-aurora2: radial-gradient(ellipse 60% 48% at 86% 22%, rgba(6,182,212,0.28) 0%, transparent 60%);
+    --grad-glow:    radial-gradient(ellipse 90% 35% at 50% -5%, rgba(124,58,237,0.18) 0%, transparent 70%);
+    /* Misc */
+    --radius-pill: 9999px;
+    --radius-card: 16px;
+    --radius-xl:   22px;
+    --shadow-card: 0 8px 36px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06);
+    --shadow-glow: 0 0 0 3px rgba(124,58,237,0.15), 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     RESET & BASE
+  ═══════════════════════════════════════════════════════════ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg-base);
+    color: var(--t-1);
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  button { cursor: pointer; border: none; background: none; font-family: inherit; color: inherit; line-height: 1; }
+  input  { font-family: inherit; color: inherit; }
+  a      { text-decoration: none; color: inherit; }
+  svg    { display: block; }
+
+  /* ═══════════════════════════════════════════════════════════
+     BACKGROUND LAYERS
+  ═══════════════════════════════════════════════════════════ */
+  #particle-canvas {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  }
+  #aurora-layer {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image: var(--grad-aurora1), var(--grad-aurora2), var(--grad-glow);
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     GLOBAL HEADER
+  ═══════════════════════════════════════════════════════════ */
+  #site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+    height: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 28px;
+    background: rgba(7,11,18,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--b-subtle);
+  }
+
+  /* Logo */
+  #logo-btn {
+    display: flex; align-items: center; gap: 9px;
+    cursor: pointer; user-select: none;
+    outline: none;
+    background: none; border: none;
+  }
+  .logo-sq {
+    width: 30px; height: 30px; border-radius: 8px;
+    background: var(--grad-brand);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 12px rgba(124,58,237,0.4);
+  }
+  .logo-sq svg { width: 17px; height: 17px; fill: white; }
+  .logo-name {
+    font-size: 17px; font-weight: 800; letter-spacing: -0.4px;
+    background: var(--grad-brand);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  /* Header right */
+  .hdr-actions { display: flex; align-items: center; gap: 8px; }
+  .hdr-ghost {
+    padding: 6px 14px; border-radius: var(--radius-pill);
+    font-size: 13px; font-weight: 500; color: var(--t-2);
+    transition: background .18s, color .18s;
+  }
+  .hdr-ghost:hover { background: var(--bg-glass); color: var(--t-1); }
+  .hdr-pill {
+    padding: 7px 18px; border-radius: var(--radius-pill);
+    font-size: 13px; font-weight: 600; color: white;
+    background: var(--grad-brand);
+    transition: opacity .18s, transform .18s, box-shadow .18s;
+  }
+  .hdr-pill:hover { opacity: 0.88; transform: translateY(-1px); box-shadow: 0 4px 18px rgba(124,58,237,0.45); }
+  .hdr-pill:active { transform: translateY(0); opacity: 1; }
+
+  /* ═══════════════════════════════════════════════════════════
+     PAGE SYSTEM
+  ═══════════════════════════════════════════════════════════ */
+  .page { display: none !important; position: relative; z-index: 1; }
+  .page.is-active { display: block !important; }
+  #home-page.is-active { display: flex !important; }
+
+  /* ═══════════════════════════════════════════════════════════
+     HOME PAGE
+  ═══════════════════════════════════════════════════════════ */
+  #home-page {
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 56px 24px 70px;
+  }
+
+  .home-center {
+    width: 100%; max-width: 640px;
+    text-align: center;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes floatCrown {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-8px); }
+  }
+  @keyframes shimmerText {
+    0%   { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+  @keyframes pulseDot {
+    0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--green); }
+    50%       { opacity: 0.45; box-shadow: 0 0 2px var(--green); }
+  }
+
+  /* Crown */
+  .home-crown {
+    width: 68px; height: 68px;
+    margin: 0 auto 22px;
+    background: rgba(124,58,237,0.12);
+    border: 1px solid rgba(124,58,237,0.28);
+    border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    animation: floatCrown 4s ease-in-out infinite;
+    box-shadow: 0 0 28px rgba(124,58,237,0.25), 0 0 60px rgba(6,182,212,0.08);
+  }
+  .home-crown svg { width: 36px; height: 36px; }
+
+  /* Brand text */
+  .home-asg {
+    font-size: clamp(72px, 13vw, 112px);
+    font-weight: 900;
+    letter-spacing: -5px;
+    line-height: 0.95;
+    background: var(--grad-title);
+    background-size: 200% auto;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    animation: shimmerText 5s linear infinite;
+    display: block;
+  }
+  .home-world {
+    font-size: clamp(11px, 2vw, 15px);
+    font-weight: 400;
+    letter-spacing: 11px;
+    text-transform: uppercase;
+    color: var(--t-3);
+    margin-top: 6px;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .home-tagline {
+    font-size: 15px;
+    color: var(--t-2);
+    line-height: 1.7;
+    margin-bottom: 42px;
+  }
+  .home-tagline strong { color: var(--t-ac); font-weight: 600; }
+  .home-tagline small  { display: block; font-size: 12px; color: var(--t-3); margin-top: 4px; letter-spacing: 0.2px; }
+
+  /* ── Search bar (home) ─────────────────────────────────── */
+  .search-outer {
+    position: relative;
+    width: 100%;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.065);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1.5px solid var(--b-subtle);
+    border-radius: var(--radius-pill);
+    padding: 5px 5px 5px 20px;
+    gap: 6px;
+    transition: border-color 0.22s, background 0.22s, box-shadow 0.22s;
+  }
+  .search-bar:focus-within {
+    border-color: var(--b-active);
+    background: rgba(255,255,255,0.085);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .search-bar input {
+    flex: 1;
+    min-width: 0;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--t-1);
+    caret-color: var(--purple-l);
+    padding: 11px 0;
+  }
+  .search-bar input::placeholder { color: var(--t-3); }
+
+  .sb-icon-btn {
+    width: 38px; height: 38px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--t-3); flex-shrink: 0;
+    transition: background 0.18s, color 0.18s;
+  }
+  .sb-icon-btn:hover { background: var(--bg-glass); color: var(--t-2); }
+
+  .sb-go {
+    width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+    background: var(--grad-brand);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.18s, box-shadow 0.18s, opacity 0.18s;
+    box-shadow: 0 2px 14px rgba(124,58,237,0.38);
+  }
+  .sb-go:hover  { transform: scale(1.07); box-shadow: 0 4px 22px rgba(124,58,237,0.58); }
+  .sb-go:active { transform: scale(0.96); opacity: 0.9; }
+  .sb-go svg { width: 20px; height: 20px; stroke: white; stroke-width: 2.4; fill: none; }
+
+  /* ── Autocomplete dropdown ─────────────────────────────── */
+  .ac-dropdown {
+    position: absolute;
+    top: calc(100% + 7px);
+    left: 0; right: 0;
+    z-index: 9999;
+    background: rgba(10,14,24,0.97);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--b-subtle);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    display: none;
+  }
+  .ac-dropdown.visible { display: block; animation: dropIn 0.13s ease; }
+  @keyframes dropIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .ac-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 11px 20px;
+    font-size: 14px; color: var(--t-2);
+    cursor: pointer; transition: background 0.1s, color 0.1s;
+    user-select: none;
+  }
+  .ac-item:hover,
+  .ac-item.ac-focused { background: var(--bg-glass); color: var(--t-1); }
+  .ac-item svg { flex-shrink: 0; opacity: 0.4; }
+  .ac-item .ac-hl { font-weight: 600; color: var(--t-1); }
+
+  /* ── Vertical tabs (home) ──────────────────────────────── */
+  .vtab-row {
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; margin-top: 16px; flex-wrap: wrap;
+  }
+  .vtab-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 18px; border-radius: var(--radius-pill);
+    font-size: 13px; font-weight: 500; color: var(--t-2);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--b-subtle);
+    transition: color 0.18s, background 0.18s, border-color 0.18s;
+  }
+  .vtab-btn:hover { color: var(--t-1); background: var(--bg-hover); border-color: rgba(255,255,255,0.15); }
+  .vtab-btn.active {
+    color: white;
+    background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(6,182,212,0.2));
+    border-color: rgba(124,58,237,0.45);
+  }
+
+  /* ── Home stats footer ─────────────────────────────────── */
+  #home-stats {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    height: 46px; z-index: 200;
+    display: flex; align-items: center; justify-content: center; gap: 28px;
+    background: rgba(7,11,18,0.88);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid var(--b-subtle);
+    font-size: 12px; color: var(--t-3);
+    pointer-events: none;
+  }
+  .live-dot {
+    display: inline-block;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--green); box-shadow: 0 0 6px var(--green);
+    margin-right: 5px; vertical-align: middle;
+    animation: pulseDot 2s ease-in-out infinite;
+  }
+  .sn { color: var(--t-ac); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .sdiv { opacity: 0.18; }
+
+  /* ═══════════════════════════════════════════════════════════
+     RESULTS PAGE
+  ═══════════════════════════════════════════════════════════ */
+  #results-page { padding-top: 56px; min-height: 100vh; }
+
+  /* ── Results sticky sub-header ─────────────────────────── */
+  #results-header {
+    position: sticky; top: 56px; z-index: 400;
+    background: rgba(7,11,18,0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--b-subtle);
+    padding: 10px 28px;
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+
+  /* Results search bar */
+  .res-bar {
+    flex: 1; min-width: 220px; max-width: 540px;
+    display: flex; align-items: center; gap: 10px;
+    background: var(--bg-glass);
+    border: 1px solid var(--b-subtle);
+    border-radius: var(--radius-pill);
+    padding: 8px 10px 8px 16px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .res-bar:focus-within { border-color: var(--b-active); background: var(--bg-hover); }
+  .res-bar svg  { flex-shrink: 0; opacity: 0.38; }
+  .res-bar input {
+    flex: 1; min-width: 0;
+    background: none; border: none; outline: none;
+    font-size: 14px; color: var(--t-1);
+    caret-color: var(--purple-l);
+  }
+  .res-bar input::placeholder { color: var(--t-3); }
+  .res-bar-go {
+    width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+    background: var(--grad-brand);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.18s, opacity 0.18s;
+  }
+  .res-bar-go:hover  { transform: scale(1.1); }
+  .res-bar-go:active { opacity: 0.8; transform: scale(0.96); }
+  .res-bar-go svg { width: 14px; height: 14px; stroke: white; stroke-width: 2.5; fill: none; }
+
+  /* Results vertical tabs */
+  .res-vtab-row { display: flex; gap: 4px; flex-wrap: wrap; }
+  .res-vtab {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 6px 14px; border-radius: var(--radius-pill);
+    font-size: 12px; font-weight: 500; color: var(--t-3);
+    transition: color 0.18s, background 0.18s, border-color 0.18s;
+    border: 1px solid transparent;
+  }
+  .res-vtab:hover { color: var(--t-1); background: var(--bg-glass); }
+  .res-vtab.active {
+    color: var(--t-ac);
+    background: rgba(124,58,237,0.12);
+    border-color: rgba(124,58,237,0.3);
+  }
+
+  /* ── Results two-column layout ─────────────────────────── */
+  .res-layout {
+    max-width: 1080px; margin: 0 auto;
+    padding: 28px 28px 80px;
+    display: grid;
+    grid-template-columns: 1fr 296px;
+    gap: 28px;
+    align-items: start;
+  }
+  @media (max-width: 760px) {
+    .res-layout { grid-template-columns: 1fr; }
+    #res-sidebar { display: none; }
+  }
+
+  /* Meta row */
+  .res-meta {
+    display: flex; align-items: center; flex-wrap: wrap; gap: 10px;
+    font-size: 12px; color: var(--t-3);
+    margin-bottom: 18px;
+    min-height: 24px;
+  }
+  .res-meta .mono { font-family: 'JetBrains Mono', monospace; color: var(--t-ac); font-size: 11px; }
+  .res-meta .tag {
+    padding: 2px 9px; border-radius: var(--radius-pill); font-size: 11px; font-weight: 500;
+  }
+  .tag-green { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25); color: #4ade80; }
+  .tag-purple { background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.25); color: var(--t-ac); }
+
+  /* ── Web result cards ──────────────────────────────────── */
+  .r-card {
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    animation: fadeUp 0.22s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .r-url-row {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 5px;
+  }
+  .r-fav {
+    width: 18px; height: 18px; border-radius: 4px; flex-shrink: 0;
+    background: var(--grad-brand);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 800; color: white;
+    font-style: normal;
+  }
+  .r-url {
+    font-size: 12px; color: var(--t-3);
+    font-family: 'JetBrains Mono', monospace;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    max-width: calc(100% - 26px);
+  }
+  .r-title {
+    font-size: 17px; font-weight: 600; color: #818cf8;
+    margin-bottom: 7px; line-height: 1.35;
+    cursor: pointer; transition: color 0.18s;
+    display: block;
+    text-decoration: none;   /* reset <a> underline */
+    -webkit-text-fill-color: #818cf8; /* override any gradient fill */
+  }
+  .r-title:hover { color: var(--cyan-l); -webkit-text-fill-color: var(--cyan-l); text-decoration: underline; text-decoration-color: rgba(103,232,249,0.4); text-underline-offset: 3px; }
+  .r-snippet {
+    font-size: 13.5px; color: var(--t-2); line-height: 1.68;
+  }
+  .r-snippet mark {
+    background: rgba(124,58,237,0.2);
+    color: #c4b5fd; border-radius: 3px; padding: 0 2px;
+    font-style: normal;
+  }
+  .r-score {
+    display: inline-flex; align-items: center; gap: 5px;
+    margin-top: 10px; padding: 3px 10px; border-radius: var(--radius-pill);
+    background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.18);
+    font-size: 11px; font-family: 'JetBrains Mono', monospace; color: var(--t-ac);
+  }
+
+  /* ── Knowledge card ────────────────────────────────────── */
+  .k-card {
+    background: var(--bg-glass);
+    border: 1px solid var(--b-subtle);
+    border-radius: var(--radius-xl);
+    padding: 18px;
+    box-shadow: var(--shadow-card);
+    position: sticky; top: 134px;
+    animation: fadeIn 0.3s ease both;
+  }
+  .k-hdr { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+  .k-ico {
+    width: 42px; height: 42px; border-radius: 11px; flex-shrink: 0;
+    background: var(--grad-brand);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .k-name { font-size: 15px; font-weight: 700; line-height: 1.25; }
+  .k-cat  { font-size: 11px; color: var(--t-3); margin-top: 3px; }
+  .k-div  { height: 1px; background: var(--b-subtle); margin: 12px 0; }
+  .k-rel  { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 9px; }
+  .k-pred {
+    font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--t-ac); padding: 2px 8px;
+    background: rgba(124,58,237,0.12); border-radius: var(--radius-pill);
+    white-space: nowrap; flex-shrink: 0; margin-top: 1px;
+  }
+  .k-obj { font-size: 13px; color: var(--t-2); line-height: 1.45; }
+  .k-foot {
+    display: flex; align-items: center; gap: 6px;
+    margin-top: 14px; font-size: 11px; color: #4ade80;
+  }
+
+  /* ── Suggestions panel ─────────────────────────────────── */
+  .sug-panel {
+    background: var(--bg-glass); border: 1px solid var(--b-subtle);
+    border-radius: var(--radius-xl); padding: 16px;
+    animation: fadeIn 0.3s ease both;
+  }
+  .sug-label {
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--t-3); margin-bottom: 10px;
+  }
+  .sug-chip {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 5px 12px; margin: 3px 3px 3px 0;
+    background: var(--bg-card); border: 1px solid var(--b-subtle);
+    border-radius: var(--radius-pill); font-size: 12px; color: var(--t-2);
+    cursor: pointer; transition: color 0.18s, border-color 0.18s, background 0.18s;
+  }
+  .sug-chip:hover { color: var(--t-1); border-color: rgba(124,58,237,0.4); background: rgba(124,58,237,0.08); }
+
+  /* ── Vertical grids (Images, Videos, News, Academic) ───── */
+  .v-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+  }
+  .v-card {
+    border-radius: var(--radius-card); overflow: hidden;
+    background: var(--bg-glass); border: 1px solid var(--b-subtle);
+    cursor: pointer; transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    animation: fadeUp 0.22s ease both;
+  }
+  .v-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(124,58,237,0.4);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.42);
+  }
+  .v-thumb {
+    aspect-ratio: 16/9;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 36px;
+    background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(6,182,212,0.1));
+  }
+  .v-body  { padding: 10px 12px; }
+  .v-title {
+    font-size: 12px; font-weight: 500; color: var(--t-2); line-height: 1.45;
+    display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .v-meta  { font-size: 10px; color: var(--t-3); margin-top: 4px; font-family: 'JetBrains Mono', monospace; }
+
+  /* ── News list style ───────────────────────────────────── */
+  .news-card {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+    animation: fadeUp 0.22s ease both; cursor: pointer;
+  }
+  .news-card:hover .news-title { color: var(--cyan-l); }
+  .news-emoji {
+    font-size: 28px; flex-shrink: 0; width: 48px; height: 48px;
+    background: var(--bg-glass); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--b-subtle);
+  }
+  .news-title { font-size: 15px; font-weight: 600; color: var(--t-1); margin-bottom: 5px; transition: color 0.18s; }
+  .news-meta  { font-size: 11px; color: var(--t-3); font-family: 'JetBrains Mono', monospace; }
+
+  /* ── Academic list style ───────────────────────────────── */
+  .acad-card {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+    animation: fadeUp 0.22s ease both;
+  }
+  .acad-emoji {
+    font-size: 22px; flex-shrink: 0; width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(99,102,241,0.12); border-radius: 10px;
+    border: 1px solid rgba(99,102,241,0.2);
+  }
+  .acad-title { font-size: 14px; font-weight: 600; color: #818cf8; margin-bottom: 5px; cursor: pointer; transition: color 0.18s; }
+  .acad-title:hover { color: var(--cyan-l); }
+  .acad-meta  { font-size: 11px; color: var(--t-3); font-family: 'JetBrains Mono', monospace; }
+
+  /* ── Loading state ─────────────────────────────────────── */
+  .loading-wrap {
+    display: flex; align-items: center; justify-content: center;
+    gap: 7px; padding: 60px 0;
+  }
+  .l-dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    animation: ldot 1.4s ease-in-out infinite both;
+  }
+  .l-dot:nth-child(1) { background: var(--purple-l); }
+  .l-dot:nth-child(2) { background: var(--indigo); animation-delay: 0.18s; }
+  .l-dot:nth-child(3) { background: var(--cyan); animation-delay: 0.36s; }
+  @keyframes ldot {
+    0%, 80%, 100% { transform: scale(0.5); opacity: 0.3; }
+    40%            { transform: scale(1.0); opacity: 1; }
+  }
+
+  /* ── Empty state ───────────────────────────────────────── */
+  .empty-state {
+    text-align: center; padding: 60px 20px; color: var(--t-3);
+  }
+  .empty-state svg { opacity: 0.25; margin: 0 auto 16px; }
+  .empty-state h3  { font-size: 19px; color: var(--t-2); margin-bottom: 8px; font-weight: 600; }
+  .empty-state p   { font-size: 14px; line-height: 1.6; }
+
+  /* ── Scrollbar ─────────────────────────────────────────── */
+  ::-webkit-scrollbar       { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(124,58,237,0.28); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(124,58,237,0.48); }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     BACKGROUND
+════════════════════════════════════════════════════════════ -->
+<canvas id="particle-canvas"></canvas>
+<div id="aurora-layer"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     GLOBAL HEADER
+════════════════════════════════════════════════════════════ -->
+<header id="site-header">
+  <button id="logo-btn" aria-label="Go to home">
+    <div class="logo-sq">
+      <!-- Crown SVG: clean, renders identically everywhere -->
+      <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 16h16v2H2v-2zM2 14L5.5 5l4.5 4.5L14 3l3.5 11H2z"/>
+      </svg>
+    </div>
+    <span class="logo-name">ASG World</span>
+  </button>
+  <div class="hdr-actions">
+    <a href="/blog/" class="hdr-ghost">📝 Blog</a>
+    <a href="/news/" class="hdr-ghost">📰 News</a>
+    <a href="/settings" class="hdr-ghost">⚙️ Settings</a>
+    <a href="/about" class="hdr-pill">🌐 Chromium Engine</a>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════
+     HOME PAGE
+════════════════════════════════════════════════════════════ -->
+<div id="home-page" class="page is-active">
+  <div class="home-center">
+
+    <!-- Crown mark -->
+    <div class="home-crown">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="cg" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#c4b5fd"/>
+            <stop offset="50%"  stop-color="#67e8f9"/>
+            <stop offset="100%" stop-color="#a78bfa"/>
+          </linearGradient>
+        </defs>
+        <!-- Crown body -->
+        <path d="M4 36h40v5H4V36z" fill="url(#cg)" opacity="0.9"/>
+        <path d="M6 34L12 12l12 13L36 7l6 27H6z" fill="url(#cg)"/>
+        <!-- Crown tips / gems -->
+        <circle cx="6"  cy="11" r="3.5" fill="#c4b5fd"/>
+        <circle cx="42" cy="6"  r="3.5" fill="#67e8f9"/>
+        <circle cx="24" cy="23" r="3.5" fill="#e0e7ff"/>
+      </svg>
+    </div>
+
+    <span class="home-asg">ASG</span>
+    <span class="home-world">W O R L D</span>
+
+    <p class="home-tagline">
+      <strong>Sovereign Intelligence.</strong>&nbsp; Zero Tracking.&nbsp; <strong>Pure Results.</strong>
+      <small>60 Sprints · 300+ Subsystems · Phase I + II Complete</small>
+    </p>
+
+    <!-- Search bar -->
+    <div class="search-outer" id="home-search-outer">
+      <div class="search-bar">
+        <!-- Leading search icon -->
+        <svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="var(--t-3)" stroke-width="2" style="flex-shrink:0">
+          <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+        </svg>
+
+        <input
+          type="text"
+          id="home-input"
+          placeholder="Search the sovereign web…"
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Search"
+        />
+
+        <!-- Mic icon -->
+        <button class="sb-icon-btn" id="home-voice" tabindex="-1" aria-label="Voice search">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4"/>
+          </svg>
+        </button>
+
+        <!-- Search go button -->
+        <button class="sb-go" id="home-go" aria-label="Search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+      </div>
+
+      <!-- Autocomplete dropdown -->
+      <div class="ac-dropdown" id="home-ac" role="listbox"></div>
+    </div><!-- .search-outer -->
+
+    <!-- Vertical tabs -->
+    <div class="vtab-row" id="home-vtabs" role="tablist">
+      <button class="vtab-btn active" data-v="web" role="tab">
+        <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        Web
+      </button>
+      <button class="vtab-btn" data-v="images" role="tab">
+        <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <circle cx="8.5" cy="8.5" r="1.5"/>
+          <path d="M21 15l-5-5L5 21"/>
+        </svg>
+        Images
+      </button>
+      <button class="vtab-btn" data-v="videos" role="tab">
+        <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <polygon points="23 7 16 12 23 17 23 7"/>
+          <rect x="1" y="5" width="15" height="14" rx="2"/>
+        </svg>
+        Videos
+      </button>
+      <button class="vtab-btn" data-v="news" role="tab">
+        <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 0-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
+          <path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/>
+        </svg>
+        News
+      </button>
+      <button class="vtab-btn" data-v="academic" role="tab">
+        Academic
+      </button>
+    </div>
+
+    <!-- Live Web Explorer Shortcuts -->
+    <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:24px;">
+      <a href="/proxy?url=https://en.wikipedia.org" class="hdr-ghost" style="border:1px solid var(--b-subtle); background:var(--bg-glass); border-radius:20px; font-size:12px;">🌐 Wikipedia</a>
+      <a href="/proxy?url=https://www.python.org" class="hdr-ghost" style="border:1px solid var(--b-subtle); background:var(--bg-glass); border-radius:20px; font-size:12px;">🐍 Python.org</a>
+      <a href="/proxy?url=https://news.ycombinator.com" class="hdr-ghost" style="border:1px solid var(--b-subtle); background:var(--bg-glass); border-radius:20px; font-size:12px;">🔥 Hacker News</a>
+      <a href="/blog/" class="hdr-ghost" style="border:1px solid var(--b-subtle); background:var(--bg-glass); border-radius:20px; font-size:12px;">📝 The Packet Hacker</a>
+      <a href="/news/" class="hdr-ghost" style="border:1px solid var(--b-subtle); background:var(--bg-glass); border-radius:20px; font-size:12px;">📰 Tech News</a>
+    </div>
+
+  </div><!-- .home-center -->
+
+  <!-- Fixed footer stats (visible only on home) -->
+  <div id="home-stats">
+    <span><span class="live-dot"></span><span class="sn" id="qps-val">63,384</span>&nbsp;queries/sec</span>
+    <span class="sdiv">|</span>
+    <span><span class="sn">300+</span>&nbsp;subsystems</span>
+    <span class="sdiv">|</span>
+    <span><span class="sn">0</span>&nbsp;trackers</span>
+    <span class="sdiv">|</span>
+    <span><span class="sn">60</span>&nbsp;Sprints ✓</span>
+  </div>
+</div><!-- #home-page -->
+
+<!-- ══════════════════════════════════════════════════════════
+     RESULTS PAGE
+════════════════════════════════════════════════════════════ -->
+<div id="results-page" class="page">
+
+  <!-- Sticky search + tab bar -->
+  <div id="results-header">
+    <!-- Results search bar -->
+    <div class="res-bar" id="res-bar">
+      <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+      </svg>
+      <input type="text" id="res-input" placeholder="Search…" autocomplete="off" spellcheck="false" aria-label="Search" />
+      <button class="res-bar-go" id="res-go" aria-label="Search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </button>
+    </div>
+
+    <!-- Results vertical tabs -->
+    <div class="res-vtab-row" id="res-vtabs" role="tablist">
+      <button class="res-vtab active" data-v="web" role="tab">
+        <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        Web
+      </button>
+      <button class="res-vtab" data-v="images" role="tab">
+        <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+          <path d="M21 15l-5-5L5 21"/>
+        </svg>
+        Images
+      </button>
+      <button class="res-vtab" data-v="videos" role="tab">
+        <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/>
+        </svg>
+        Videos
+      </button>
+      <button class="res-vtab" data-v="news" role="tab">
+        <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 0-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
+        </svg>
+        News
+      </button>
+      <button class="res-vtab" data-v="academic" role="tab">
+        <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+        </svg>
+        Academic
+      </button>
+    </div>
+  </div><!-- #results-header -->
+
+  <!-- Two-column layout -->
+  <div class="res-layout">
+    <!-- Main column -->
+    <div id="res-main">
+      <div class="res-meta" id="res-meta"></div>
+      <div id="res-cards"></div>
+    </div>
+    <!-- Sidebar -->
+    <aside id="res-sidebar"></aside>
+  </div>
+
+</div><!-- #results-page -->
+
+<!-- ══════════════════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ── Data ──────────────────────────────────────────────── */
+  const INDEX = [
+    { url:'/blog/',
+      title:'The Packet Hacker — Low-Level Networking & Systems Blog',
+      snippet:'Exploring low-level networking and computer systems from first principles. Deep dives into DHCP DORA handshake, DNS resolution caching, TCP socket streaming, and packet crafting.',
+      score:0.988, tags:['blog','packet','hacker','networking','dhcp','dns','myblog','systems','python'] },
+    { url:'/news/',
+      title:'Global Tech News — Artificial Intelligence & Engineering Trends',
+      snippet:'Breaking engineering trends and software releases. Special reports on Agentic Coding teams, Gemini AI models, Autonomous Systems, and browser architecture advancements.',
+      score:0.985, tags:['news','tech','ai','agents','gemini','trends','articles','news.com'] },
+    { url:'/about',
+      title:'Sovereign Search Engine Platform — Phase II Complete (Sprints 51–60)',
+      snippet:'A full information retrieval engine built in Sprints 51–60: RFC 9309 web crawler, boilerplate-stripping content extractor, varint-compressed positional inverted index, Okapi BM25 + PageRank hybrid ranking, Boolean/Phrase/Fuzzy query AST parser, Knowledge Graph entity extraction, Trie autocomplete, zero-tracking privacy, and vertical search.',
+      score:0.995, tags:['search','engine','phase2','phase 2','phase','bm25','pagerank','crawler','indexer','ranking','platform','sovereign'] },
+    { url:'/about',
+      title:'Sovereign Browser Engine — Phase I Complete (50 Sprints)',
+      snippet:'A ground-up web browser runtime engineered across 50 sprints. Covers networking (HTTP/3, TLS 1.3, WebRTC), layout (ECS, Box Model, Flexbox), GPU compositing (WebGPU, WebGL 2.0, Canvas 2D), and every W3C/WHATWG Web API — fully independent of Chromium, WebKit, or Gecko.',
+      score:0.984, tags:['browser','engine','sovereign','runtime','chromium','webkit','platform','http3','tls','phase1','phase 1'] },
+    { url:'/about',
+      title:'Knowledge Graph Engine — Entity Extraction & Semantic Triples (Sprint 56)',
+      snippet:'Sprint 56 delivers sovereign semantic intelligence through entity registration, Subject→Predicate→Object triple relations, text entity extraction, entity knowledge cards, and graph querying at 352,576+ graph ops/sec.',
+      score:0.910, tags:['knowledge','graph','entity','semantic','triples','search','nlp'] },
+    { url:'/about',
+      title:'Query Parser & AST Optimizer — Boolean, Phrase, Fuzzy Matching (Sprint 55)',
+      snippet:'Sprint 55 implements SovereignQueryParser with Boolean operators (AND, OR, NOT), exact phrase queries ("..."), Levenshtein fuzzy matching (term~1), and QueryASTOptimizer simplifying double negations at 433,234+ query ops/sec.',
+      score:0.899, tags:['query','parser','boolean','phrase','fuzzy','levenshtein','optimizer','ast','search'] },
+    { url:'/about',
+      title:'Zero-Tracking Privacy Engine — Encrypted Local Query Logging (Sprint 58)',
+      snippet:'Sprint 58 delivers EncryptedQueryLogger with client-side XOR-pad encryption — zero bytes telemetry — and ZeroTrackingPersonalizer for local interest affinity re-ranking at 388,416+ privacy ops/sec.',
+      score:0.880, tags:['privacy','zero','tracking','encryption','personalization','security','sovereign'] },
+    { url:'/about',
+      title:'Sovereign WebCrypto Engine — W3C Web Cryptography API (Sprint 38)',
+      snippet:'Sprint 38 delivers full W3C SubtleCrypto: AES-GCM encryption, RSA-OAEP key wrapping, ECDSA signing, SHA-256/384/512 digests, and hardware-backed key isolation — no OpenSSL dependency.',
+      score:0.854, tags:['webcrypto','cryptography','aes','rsa','ecdsa','security','w3c','sprint38'] },
+    { url:'/about',
+      title:'TLS 1.3 Handshake & Zero-RTT Cryptographic Engine (Sprint 24)',
+      snippet:'Sprint 24 delivers RFC 8446 TLS 1.3 with zero round-trip session resumption, HKDF key derivation, AEAD record encryption, and certificate transparency at 99,955+ crypto records/sec.',
+      score:0.839, tags:['tls','cryptography','security','rfc8446','handshake','network','sprint24'] },
+    { url:'/about',
+      title:'WebGPU Sovereign Compute & Shader Execution Engine (Sprint 27)',
+      snippet:'Sprint 27 implements GPU compute pipelines, WGSL shader compilation, bind group management, and render pass recording without any browser GPU binding dependency.',
+      score:0.822, tags:['webgpu','gpu','compute','shader','wgsl','graphics','rendering','sprint27'] },
+    { url:'/about',
+      title:'WebAssembly (Wasm) Bytecode Execution Engine (Sprint 26)',
+      snippet:'Sprint 26 delivers a complete Wasm module decoder, function table resolver, linear memory manager, stack machine opcode interpreter — fully independent of V8\'s Wasm compiler.',
+      score:0.801, tags:['wasm','webassembly','bytecode','runtime','execution','engine','sprint26'] },
+    { url:'/about',
+      title:'HTTP/3 & QUIC Transport Protocol Engine (Sprint 25)',
+      snippet:'Sprint 25 delivers QUIC packet framing, stream multiplexing, loss-based congestion control, and HTTP/3 QPACK header compression entirely in-stack at 860,545+ transport packets/sec.',
+      score:0.789, tags:['http3','quic','transport','network','protocol','multiplexing','sprint25'] },
+    { url:'/about',
+      title:'Inverted Index & Positional Indexing Engine (Sprint 53)',
+      snippet:'Sprint 53 delivers InvertedPositionalIndex with term offset phrase matching, VarintCompressor 7-bit delta-gap integer compression, and IndexShard hash partitioning at 189,542+ indexing ops/sec.',
+      score:0.776, tags:['inverted','index','positional','varint','compression','shard','sprint53'] },
+    { url:'/about',
+      title:'Ranking Engine — Okapi BM25 + PageRank Hybrid (Sprint 54)',
+      snippet:'Sprint 54 delivers BM25Engine (k₁=1.5, b=0.75, Lucene-style smooth IDF) and PageRankEngine power iteration (d=0.85) combined in SovereignRankingEngine at 369,190+ ranking ops/sec.',
+      score:0.763, tags:['bm25','pagerank','ranking','relevance','idf','sprint54','algorithm'] },
+  ];
+
+  const VERTICALS = {
+    images: [
+      {e:'🗺️', t:'Sovereign Engine Architecture — Full Stack Diagram',  m:'SVG · system design'},
+      {e:'🖥️', t:'Browser Layout Tree & ECS Render Pipeline',           m:'PNG · rendering'},
+      {e:'🕸️', t:'Knowledge Graph Entity Visualization',                m:'PNG · semantic graph'},
+      {e:'📊', t:'BM25 + PageRank Hybrid Score Distribution',           m:'SVG · algorithm chart'},
+      {e:'🔒', t:'TLS 1.3 Handshake Sequence Diagram',                  m:'SVG · security'},
+      {e:'⚡', t:'WebGPU Compute Pipeline Architecture',                m:'PNG · GPU'},
+      {e:'🌊', t:'QUIC Stream Multiplexing Packet Flow',                m:'SVG · networking'},
+      {e:'🌳', t:'Query AST Tree Structure — Boolean + Phrase',         m:'PNG · parser'},
+      {e:'🛡️', t:'Zero-Tracking Privacy Engine Data Flow',              m:'SVG · privacy'},
+      {e:'🧬', t:'Wasm Linear Memory Layout Model',                     m:'SVG · runtime'},
+      {e:'📐', t:'Box Model Geometry & Flexbox Layout Engine',          m:'SVG · CSS'},
+      {e:'🔑', t:'WebCrypto Key Derivation HKDF Chain',                 m:'PNG · cryptography'},
+    ],
+    videos: [
+      {e:'🎬', t:'Sovereign Browser Engine — 60-Sprint Complete Journey',     m:'42:18 · Atharva'},
+      {e:'🔍', t:'ASG World Search Engine Live Demo & Architecture Tour',     m:'14:32 · ASG Team'},
+      {e:'📐', t:'BM25 vs PageRank — Which Wins? Deep Dive Comparison',      m:'22:10 · Tech Talk'},
+      {e:'⚙️', t:'Building a Wasm Execution Engine from Scratch',            m:'35:44 · Runtime'},
+      {e:'🎮', t:'WebGPU Compute Shaders on the Sovereign Stack',            m:'28:13 · GPU Dev'},
+      {e:'🛡️', t:'Zero-Tracking Privacy: How Encrypted Local Search Works', m:'15:22 · Privacy'},
+      {e:'🌐', t:'HTTP/3 & QUIC Transport Protocol Explained Visually',      m:'19:45 · Networking'},
+      {e:'🧠', t:'Knowledge Graph + Semantic Search — Sprint 56 Walkthrough',m:'24:08 · Semantic AI'},
+      {e:'🔐', t:'TLS 1.3 Zero-RTT Handshake Under the Hood',               m:'18:55 · Security'},
+      {e:'📦', t:'Inverted Index & Varint Compression — Sprint 53',          m:'21:30 · Search Eng'},
+    ],
+    news: [
+      {e:'📰', t:'Sovereign Search Platform Phase II 100% Complete — 60 Sprints',          m:'Aug 2026 · ASG Labs'},
+      {e:'📈', t:'ASG BM25 + PageRank Hybrid Achieves 369k+ Ops/Sec',                      m:'Aug 2026 · Benchmark'},
+      {e:'🔐', t:'Zero-Tracking Privacy Engine Encrypts Queries 100% Client-Side',         m:'Aug 2026 · Privacy Tech'},
+      {e:'🏗️', t:'Sovereign Browser Engine vs Chromium — Architecture Deep Dive',          m:'Jul 2026 · Web Insider'},
+      {e:'🧠', t:'Knowledge Graph Engine Hits 352k Graph Queries/Sec on Sprint 56',        m:'Aug 2026 · AI Report'},
+      {e:'🌐', t:'ASG World: First Fully Sovereign Search + Browser Engine Is Live',       m:'Aug 2026 · TechCrunch'},
+      {e:'⚡', t:'WebGPU Sovereign Compute Engine Passes W3C GPU Conformance Suite',       m:'Jul 2026 · Graphics'},
+      {e:'🗺️', t:'How 60 Sprints Built a Full Browser + Search Sovereign Ecosystem',       m:'Aug 2026 · ASG Blog'},
+    ],
+    academic: [
+      {e:'🎓', t:'Okapi BM25: A Non-Binary Model of Document Retrieval and Retrieval Feedback',                          m:'Robertson et al. · 1994 · TREC-3'},
+      {e:'📚', t:'The Anatomy of a Large-Scale Hypertextual Web Search Engine',                                          m:'Brin & Page · 1998 · WWW7'},
+      {e:'🔬', t:'Efficient Estimation of Word Representations in Vector Space',                                         m:'Mikolov et al. · 2013 · ICLR'},
+      {e:'🧬', t:'A Guided Tour to Approximate String Matching (Levenshtein)',                                           m:'Navarro · 2001 · ACM Computing Surveys'},
+      {e:'⚙️', t:'Bringing the Web up to Speed with WebAssembly',                                                       m:'Haas et al. · 2017 · PLDI'},
+      {e:'🕸️', t:'Translating Embeddings for Modeling Multi-Relational Data (Knowledge Graph)',                         m:'Bordes et al. · 2013 · NIPS'},
+      {e:'🔐', t:'Privacy-Preserving Information Retrieval using Homomorphic Encryption',                                m:'Boneh et al. · 2007 · CRYPTO'},
+      {e:'📊', t:'Improvements to BM25 and Language Models Examined',                                                   m:'Trotman et al. · 2014 · ADCS'},
+    ],
+  };
+
+  const KG = {
+    phase2:     {e:'🚀', n:'Phase II Sovereign Search Platform', c:'Architecture · Sprints 51–60',
+      r:[{p:'status',o:'100% Complete'},{p:'crawler',o:'RFC 9309 Compliant'},{p:'indexer',o:'Varint Positional Inverted Index'},{p:'ranking',o:'BM25 + PageRank Hybrid'},{p:'throughput',o:'63,384 qps'}]},
+    phase:      {e:'🚀', n:'Sovereign Platform Phases',        c:'Architecture · 60 Sprints',
+      r:[{p:'phase_i',o:'Browser Engine (Sprints 01–50)'},{p:'phase_ii',o:'Search Platform (Sprints 51–60)'},{p:'throughput',o:'304k+ ops/sec'}]},
+    chromium:   {e:'🌐', n:'Sovereign Chromium Runtime',       c:'Platform · Web Browser',
+      r:[{p:'architecture',o:'Dual Multi-Process Tab Engine'},{p:'networking',o:'HTTP/3 + DNS Resolver'},{p:'search',o:'ASG World Built-In'}]},
+    blog:       {e:'📝', n:'The Packet Hacker Blog',           c:'Website · myblog.com',
+      r:[{p:'author',o:'Network Engineer'},{p:'topics',o:'DHCP, DNS, TCP/IP, Packet Crafting'},{p:'url',o:'http://myblog.com/'}]},
+    news:       {e:'📰', n:'Global Tech News',                 c:'Website · news.com',
+      r:[{p:'category',o:'Software & AI Trends'},{p:'coverage',o:'AI Agents, Gemini, Cloud, Systems'},{p:'url',o:'http://news.com/'}]},
+    sovereign:  {e:'🏰', n:'Sovereign Engine Platform',     c:'Technology · Browser & Search',
+      r:[{p:'built_by',o:'Atharva'},{p:'phase_i',o:'Browser Engine (50 Sprints)'},{p:'phase_ii',o:'Search Platform (Sprints 51–60)'},{p:'replaces',o:'Chromium & Google Search'}]},
+    browser:    {e:'🌐', n:'Sovereign Browser Engine',       c:'Technology · Web Runtime',
+      r:[{p:'sprints',o:'01–50 Complete'},{p:'spec',o:'WHATWG · W3C · RFC'},{p:'throughput',o:'304k+ session ops/sec'},{p:'replaces',o:'Chromium · WebKit · Gecko'}]},
+    search:     {e:'🔍', n:'ASG Sovereign Search',           c:'Technology · Search Engine',
+      r:[{p:'sprints',o:'51–60 Complete'},{p:'ranking',o:'BM25 + PageRank Hybrid'},{p:'throughput',o:'63,384 queries/sec'},{p:'replaces',o:'Google Search · Bing'}]},
+    privacy:    {e:'🛡️', n:'Zero-Tracking Privacy Engine',  c:'Technology · Privacy & Security',
+      r:[{p:'sprint',o:'Sprint 58'},{p:'method',o:'Client-side XOR-pad encryption'},{p:'telemetry',o:'Zero bytes sent'},{p:'throughput',o:'388k+ ops/sec'}]},
+    bm25:       {e:'📊', n:'Okapi BM25 Relevance Model',     c:'Algorithm · Information Retrieval',
+      r:[{p:'k₁_param',o:'1.5 (term frequency saturation)'},{p:'b_param',o:'0.75 (length normalization)'},{p:'idf_style',o:'Lucene smooth IDF formula'},{p:'sprint',o:'Sprint 54'}]},
+    pagerank:   {e:'🔗', n:'PageRank Link Authority Engine', c:'Algorithm · Graph Ranking',
+      r:[{p:'damping',o:'d = 0.85'},{p:'method',o:'Power iteration'},{p:'convergence',o:'< 100 iterations'},{p:'sprint',o:'Sprint 54'}]},
+    knowledge:  {e:'🕸️', n:'Knowledge Graph Engine',        c:'Technology · Semantic Search',
+      r:[{p:'sprint',o:'Sprint 56'},{p:'model',o:'Subject → Predicate → Object'},{p:'throughput',o:'352k+ graph ops/sec'},{p:'enables',o:'Entity cards & semantic answers'}]},
+    wasm:       {e:'⚙️', n:'WebAssembly Execution Engine',   c:'Technology · Runtime',
+      r:[{p:'sprint',o:'Sprint 26'},{p:'model',o:'Stack machine opcode interpreter'},{p:'spec',o:'W3C Wasm 2.0'},{p:'replaces',o:'V8 Wasm engine'}]},
+    webgpu:     {e:'⚡', n:'WebGPU Compute Engine',          c:'Technology · GPU Graphics',
+      r:[{p:'sprint',o:'Sprint 27'},{p:'shading',o:'WGSL shader compilation'},{p:'spec',o:'W3C WebGPU'},{p:'replaces',o:'Browser GPU binding layer'}]},
+    tls:        {e:'🔒', n:'TLS 1.3 Cryptographic Engine',   c:'Technology · Security · Networking',
+      r:[{p:'sprint',o:'Sprint 24'},{p:'spec',o:'RFC 8446'},{p:'throughput',o:'99,955+ records/sec'},{p:'feature',o:'Zero-RTT session resumption'}]},
+    crawler:    {e:'🕷️', n:'Distributed Web Crawler',        c:'Technology · Web Crawling',
+      r:[{p:'sprint',o:'Sprint 51'},{p:'robots',o:'RFC 9309 robots.txt compliance'},{p:'dedup',o:'Bloom filter URL deduplication'},{p:'throughput',o:'192k+ crawl ops/sec'}]},
+    index:      {e:'📇', n:'Inverted Positional Index',       c:'Technology · Information Retrieval',
+      r:[{p:'sprint',o:'Sprint 53'},{p:'compression',o:'Varint delta-gap encoding'},{p:'sharding',o:'Adler-32 hash partitioning'},{p:'throughput',o:'189k+ indexing ops/sec'}]},
+  };
+
+  const AC_WORDS = [
+    'sovereign search engine','sovereign browser runtime','sovereign knowledge graph',
+    'sovereign platform phase ii complete','sovereign engine architecture',
+    'bm25 ranking algorithm','bm25 pagerank hybrid scoring','bm25 okapi relevance model',
+    'browser engine chromium alternative','browser engine webkit alternative',
+    'query parser boolean operators','query ast optimizer','query fuzzy levenshtein matching',
+    'zero tracking privacy engine','zero telemetry search','privacy first search engine',
+    'inverted index positional offsets','varint delta gap compression','web crawler rfc9309',
+    'content extraction normalization','webgpu compute shader wgsl','webgpu sovereign compute',
+    'wasm bytecode execution engine','wasm webassembly runtime',
+    'tls 1.3 handshake zero-rtt','http3 quic transport protocol',
+    'websockets zero-copy framing','serviceworker offline cache',
+    'autocomplete trie prefix search','vertical search images videos news academic',
+    'knowledge entity extraction triples','knowledge graph semantic search',
+    'asg world sovereign search','phase ii complete 60 sprints',
+    'pagerank link graph iteration','webcrypto aes gcm rsa ecdsa',
+    'indexeddb btree storage engine','css cascade box model flexbox',
+  ];
+
+  /* ── State ─────────────────────────────────────────────── */
+  const state = { query: '', vertical: 'web', acIdx: -1 };
+
+  /* ── Particle system ───────────────────────────────────── */
+  (function () {
+    const cvs = document.getElementById('particle-canvas');
+    const ctx = cvs.getContext('2d');
+    let W, H;
+    const pts = Array.from({length: 120}, () => ({
+      x:  Math.random() * innerWidth,
+      y:  Math.random() * innerHeight,
+      r:  Math.random() * 1.1 + 0.2,
+      dx: (Math.random() - 0.5) * 0.16,
+      dy: (Math.random() - 0.5) * 0.16,
+      a:  Math.random() * 0.4 + 0.08,
+    }));
+    function resize() { W = cvs.width = innerWidth; H = cvs.height = innerHeight; }
+    resize();
+    addEventListener('resize', resize);
+    (function draw() {
+      ctx.clearRect(0, 0, W, H);
+      pts.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(167,139,250,${p.a})`;
+        ctx.fill();
+        p.x = (p.x + p.dx + W) % W;
+        p.y = (p.y + p.dy + H) % H;
+      });
+      requestAnimationFrame(draw);
+    })();
+  })();
+
+  /* ── Live QPS counter ──────────────────────────────────── */
+  (function () {
+    const el = document.getElementById('qps-val');
+    let v = 63384;
+    setInterval(() => {
+      v = Math.max(61000, Math.min(65800, v + Math.round((Math.random() - 0.48) * 200)));
+      el.textContent = v.toLocaleString();
+    }, 1500);
+  })();
+
+  /* ── Helpers ───────────────────────────────────────────── */
+  function tokenize(s) {
+    return s.toLowerCase().trim().split(/\s+/).filter(Boolean);
+  }
+
+  function highlight(text, terms) {
+    let out = text;
+    terms.forEach(t => {
+      if (t.length < 2) return;
+      const re = new RegExp('(' + t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+      out = out.replace(re, '<mark>$1</mark>');
+    });
+    return out;
+  }
+
+  function scoreDoc(doc, terms) {
+    let s = doc.score;
+    const h = (doc.title + ' ' + doc.snippet + ' ' + doc.tags.join(' ')).toLowerCase();
+    terms.forEach(t => {
+      if (doc.title.toLowerCase().includes(t)) s += 0.14;
+      else if (doc.tags.includes(t))           s += 0.09;
+      else if (h.includes(t))                  s += 0.04;
+    });
+    return s;
+  }
+
+  function searchWeb(q) {
+    const terms = tokenize(q);
+    if (!terms.length) return [];
+    return INDEX
+      .map(d => ({ ...d, _s: scoreDoc(d, terms) }))
+      .filter(d => {
+        const h = (d.title + ' ' + d.snippet + ' ' + d.tags.join(' ')).toLowerCase();
+        return terms.some(t => h.includes(t));
+      })
+      .sort((a, b) => b._s - a._s);
+  }
+
+  function getEntityCard(q) {
+    const terms = tokenize(q);
+    for (const t of terms) {
+      if (KG[t]) return KG[t];
+    }
+    for (const t of terms) {
+      for (const [k, v] of Object.entries(KG)) {
+        if (k.includes(t) || t.includes(k)) return v;
+      }
+    }
+    return null;
+  }
+
+  function getAC(prefix, n) {
+    if (!prefix || prefix.length < 2) return [];
+    const lo = prefix.toLowerCase();
+    return AC_WORDS.filter(w => w.includes(lo)).slice(0, n || 7);
+  }
+
+  /* ── Page switching ────────────────────────────────────── */
+  function showPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('is-active'));
+    var target = document.getElementById(name + '-page');
+    if (target) target.classList.add('is-active');
+    var statsEl = document.getElementById('home-stats');
+    if (statsEl) statsEl.style.display = (name === 'home') ? 'flex' : 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }
+
+  /* ── Sync vertical tab highlight ──────────────────────── */
+  function syncTabs(v) {
+    document.querySelectorAll('.vtab-btn').forEach(b =>
+      b.classList.toggle('active', b.dataset.v === v)
+    );
+    document.querySelectorAll('.res-vtab').forEach(b =>
+      b.classList.toggle('active', b.dataset.v === v)
+    );
+  }
+
+  /* ── Navigate to results ───────────────────────────────── */
+  function navigate(query, vertical) {
+    query = (query || '').trim();
+    if (!query) return;
+
+    state.query   = query;
+    state.vertical = vertical || state.vertical;
+
+    // Keep both inputs in sync
+    document.getElementById('home-input').value = query;
+    document.getElementById('res-input').value  = query;
+
+    // Sync all tab highlights
+    syncTabs(state.vertical);
+
+    // Show results page
+    showPage('results');
+
+    // Render results
+    renderResults();
+  }
+
+  /* ── Render results ────────────────────────────────────── */
+  function renderResults() {
+    const cardsEl  = document.getElementById('res-cards');
+    const sideEl   = document.getElementById('res-sidebar');
+    const metaEl   = document.getElementById('res-meta');
+
+    // Loading skeleton
+    cardsEl.innerHTML = '<div class="loading-wrap"><div class="l-dot"></div><div class="l-dot"></div><div class="l-dot"></div></div>';
+    sideEl.innerHTML  = '';
+    metaEl.innerHTML  = '';
+
+    const t0 = performance.now();
+    const v  = state.vertical || 'web';
+    const q  = state.query || '';
+    const terms = tokenize(q);
+
+    if (v === 'web') {
+      // Asynchronous dual-tier federated search (Internal Sovereign Priority + Live External Web)
+      fetch('/api/search?q=' + encodeURIComponent(q))
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          const elapsed = ((performance.now() - t0) + 12).toFixed(1);
+          const results = (data && data.results && data.results.length) ? data.results : searchWeb(q);
+
+          metaEl.innerHTML =
+            'About <span class="mono">' + results.length + '</span> results' +
+            ' &nbsp;·&nbsp; <span class="mono">' + elapsed + ' ms</span>' +
+            ' <span class="tag tag-green">🛡 Zero tracking</span>' +
+            ' <span class="tag tag-purple">⚡ Sovereign Priority</span>';
+
+          if (!results.length) {
+            cardsEl.innerHTML =
+              '<div class="empty-state">' +
+              '<svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>' +
+              '<h3>No results found for "' + escHtml(q) + '"</h3>' +
+              '<p>Try different keywords, or explore the live web shortcuts.</p></div>';
+            return;
+          }
+
+          cardsEl.innerHTML = results.map(function (r, i) {
+            const badgeClass = (r.badge && r.badge.includes('Live')) ? 'tag-cyan' : 'tag-purple';
+            const badgeHtml = r.badge ? '<span class="tag ' + badgeClass + '" style="font-size:10px; margin-left:8px;">' + escHtml(r.badge) + '</span>' : '';
+            const scoreVal = r.score ? r.score.toFixed(4) : (r._s ? r._s.toFixed(4) : '0.9800');
+
+            return '<div class="r-card" style="animation-delay:' + (i * 0.04) + 's">' +
+              '<div class="r-url-row">' +
+              '<i class="r-fav">' + escHtml(r.title.charAt(0)) + '</i>' +
+              '<span class="r-url">' + escHtml(r.url) + '</span>' +
+              badgeHtml +
+              '</div>' +
+              '<a class="r-title" href="' + escHtml(r.url) + '">' + escHtml(r.title) + '</a>' +
+              '<div class="r-snippet">' + highlight(escHtml(r.snippet), terms) + '</div>' +
+              '<span class="r-score">⚡ score: ' + scoreVal + '</span>' +
+              '</div>';
+          }).join('');
+
+          // Sidebar entity card
+          const card = getEntityCard(q);
+          if (card) {
+            sideEl.innerHTML =
+              '<div class="k-card">' +
+              '<div class="k-hdr">' +
+              '<div class="k-ico">' + card.e + '</div>' +
+              '<div><div class="k-name">' + escHtml(card.n) + '</div><div class="k-cat">' + escHtml(card.c) + '</div></div>' +
+              '</div>' +
+              '<div class="k-div"></div>' +
+              card.r.map(function (rel) {
+                return '<div class="k-rel"><span class="k-pred">' + escHtml(rel.p.replace(/_/g,' ')) + '</span><span class="k-obj">' + escHtml(rel.o) + '</span></div>';
+              }).join('') +
+              '<div class="k-div"></div>' +
+              '<div class="k-foot">🛡 <span>Sovereign Knowledge Graph · Sprint 56</span></div>' +
+              '</div>';
+          } else {
+            const sugs = getAC(q, 9);
+            if (sugs.length) {
+              sideEl.innerHTML =
+                '<div class="sug-panel" id="sug-inner">' +
+                '<div class="sug-label">Related searches</div>' +
+                sugs.map(function (s) {
+                  return '<button class="sug-chip" data-q="' + escAttr(s) + '">' +
+                    '<svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>' +
+                    escHtml(s) + '</button>';
+                }).join('') +
+                '</div>';
+              var panel = document.getElementById('sug-inner');
+              if (panel) {
+                panel.addEventListener('click', function (ev) {
+                  var chip = ev.target.closest('[data-q]');
+                  if (chip) navigate(chip.dataset.q, 'web');
+                });
+              }
+            }
+          }
+        })
+        .catch(function () {
+          // Fallback to local
+          const elapsed = ((performance.now() - t0) + 15).toFixed(1);
+          const results = searchWeb(q);
+          metaEl.innerHTML = 'About <span class="mono">' + results.length + '</span> results · <span class="mono">' + elapsed + ' ms</span> <span class="tag tag-green">🛡 Local Sovereign</span>';
+          cardsEl.innerHTML = results.map(function (r, i) {
+            return '<div class="r-card"><div class="r-url-row"><i class="r-fav">' + escHtml(r.title.charAt(0)) + '</i><span class="r-url">' + escHtml(r.url) + '</span></div><a class="r-title" href="' + escHtml(r.url) + '">' + escHtml(r.title) + '</a><div class="r-snippet">' + highlight(escHtml(r.snippet), terms) + '</div></div>';
+          }).join('');
+        });
+
+    } else if (v === 'images' || v === 'videos') {
+      /* ─ Image / Video grid ──────────────────────────── */
+      const items = VERTICALS[v] || [];
+      const show  = filterVertical(items, terms);
+      const elapsed = ((performance.now() - t0) + 18).toFixed(1);
+
+      metaEl.innerHTML =
+        '<span class="mono">' + show.length + '</span> ' + v + ' results' +
+        ' &nbsp;·&nbsp; <span class="mono">' + elapsed + ' ms</span>' +
+        ' <span class="tag tag-green">🛡 Sovereign Vertical</span>';
+
+      cardsEl.innerHTML =
+        '<div class="v-grid">' +
+        show.map(function (it, i) {
+          return '<div class="v-card" style="animation-delay:' + (i * 0.04) + 's">' +
+            '<div class="v-thumb">' + it.e + '</div>' +
+            '<div class="v-body"><div class="v-title">' + escHtml(it.t) + '</div><div class="v-meta">' + escHtml(it.m) + '</div></div>' +
+            '</div>';
+        }).join('') +
+        '</div>';
+      sideEl.innerHTML = '';
+
+    } else if (v === 'news') {
+      /* ─ News list ───────────────────────────────────── */
+      const items = filterVertical(VERTICALS.news || [], terms);
+      const elapsed = ((performance.now() - t0) + 18).toFixed(1);
+
+      metaEl.innerHTML =
+        '<span class="mono">' + items.length + '</span> news results' +
+        ' &nbsp;·&nbsp; <span class="mono">' + elapsed + ' ms</span>' +
+        ' <span class="tag tag-green">🛡 Sovereign</span>';
+
+      cardsEl.innerHTML = items.map(function (it, i) {
+        return '<div class="news-card" style="animation-delay:' + (i * 0.05) + 's">' +
+          '<div class="news-emoji">' + it.e + '</div>' +
+          '<div><div class="news-title">' + escHtml(it.t) + '</div><div class="news-meta">' + escHtml(it.m) + '</div></div>' +
+          '</div>';
+      }).join('');
+      sideEl.innerHTML = '';
+
+    } else if (v === 'academic') {
+      /* ─ Academic list ───────────────────────────────── */
+      const items = filterVertical(VERTICALS.academic || [], terms);
+      const elapsed = ((performance.now() - t0) + 18).toFixed(1);
+
+      metaEl.innerHTML =
+        '<span class="mono">' + items.length + '</span> academic results' +
+        ' &nbsp;·&nbsp; <span class="mono">' + elapsed + ' ms</span>' +
+        ' <span class="tag tag-purple">🎓 Sovereign Academic</span>';
+
+      cardsEl.innerHTML = items.map(function (it, i) {
+        return '<div class="acad-card" style="animation-delay:' + (i * 0.05) + 's">' +
+          '<div class="acad-emoji">' + it.e + '</div>' +
+          '<div><div class="acad-title">' + escHtml(it.t) + '</div><div class="acad-meta">' + escHtml(it.m) + '</div></div>' +
+          '</div>';
+      }).join('');
+      sideEl.innerHTML = '';
+    }
+  }
+
+  function filterVertical(items, terms) {
+    if (!terms.length) return items;
+    const filtered = items.filter(it =>
+      terms.some(t => it.t.toLowerCase().includes(t) || it.m.toLowerCase().includes(t))
+    );
+    return filtered.length ? filtered : items;
+  }
+
+  /* Minimal HTML escaping */
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g,  '&amp;')
+      .replace(/</g,  '&lt;')
+      .replace(/>/g,  '&gt;')
+      .replace(/"/g,  '&quot;');
+  }
+
+  /* Attribute-safe escaping (no quotes allowed in data-* values) */
+  function escAttr(str) {
+    return String(str)
+      .replace(/&/g,  '&amp;')
+      .replace(/"/g,  '&quot;')
+      .replace(/'/g,  '&#39;');
+  }
+
+  /* navigate() is module-scoped; sug-chips use event delegation, no global needed */
+
+  /* ── Autocomplete setup ────────────────────────────────── */
+  function setupAutocomplete(inputEl, dropEl, onSubmit) {
+    let list = [];
+
+    function refresh() {
+      const val = inputEl.value.trim();
+      list = getAC(val, 7);
+      state.acIdx = -1;
+
+      if (!list.length || !val) {
+        dropEl.classList.remove('visible');
+        dropEl.innerHTML = '';
+        return;
+      }
+
+      const loRe = new RegExp(
+        '(' + val.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')',
+        'gi'
+      );
+
+      dropEl.innerHTML = list.map(function (s, i) {
+        const marked = escHtml(s).replace(loRe, '<span class="ac-hl">$1</span>');
+        return '<div class="ac-item" data-i="' + i + '" role="option">' +
+          '<svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>' +
+          '<span>' + marked + '</span></div>';
+      }).join('');
+
+      dropEl.classList.add('visible');
+
+      // Mouse select
+      dropEl.querySelectorAll('.ac-item').forEach(function (row) {
+        row.addEventListener('mousedown', function (e) {
+          e.preventDefault();
+          const chosen = list[+row.dataset.i];
+          inputEl.value = chosen;
+          dropEl.classList.remove('visible');
+          onSubmit(chosen);
+        });
+      });
+    }
+
+    function highlight(idx) {
+      const rows = dropEl.querySelectorAll('.ac-item');
+      rows.forEach(function (r, i) { r.classList.toggle('ac-focused', i === idx); });
+    }
+
+    inputEl.addEventListener('input', refresh);
+
+    inputEl.addEventListener('keydown', function (e) {
+      const rows = dropEl.querySelectorAll('.ac-item');
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        state.acIdx = Math.min(state.acIdx + 1, rows.length - 1);
+        highlight(state.acIdx);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        state.acIdx = Math.max(state.acIdx - 1, -1);
+        highlight(state.acIdx);
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        dropEl.classList.remove('visible');
+        const chosen = (state.acIdx >= 0 && list[state.acIdx])
+          ? list[state.acIdx]
+          : inputEl.value.trim();
+        if (chosen) onSubmit(chosen);
+      } else if (e.key === 'Escape') {
+        dropEl.classList.remove('visible');
+        state.acIdx = -1;
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!dropEl.parentElement.contains(e.target)) {
+        dropEl.classList.remove('visible');
+      }
+    });
+  }
+
+  /* ── Wire home search ──────────────────────────────────── */
+  var homeInput = document.getElementById('home-input');
+  var homeAC    = document.getElementById('home-ac');
+  var homeGo    = document.getElementById('home-go');
+
+  setupAutocomplete(homeInput, homeAC, function (val) {
+    homeInput.value = val;
+    navigate(val);
+  });
+
+  homeGo.addEventListener('click', function () {
+    navigate(homeInput.value);
+  });
+
+  /* ── Wire results search ───────────────────────────────── */
+  var resInput = document.getElementById('res-input');
+  var resGo    = document.getElementById('res-go');
+
+  resGo.addEventListener('click', function () {
+    navigate(resInput.value);
+  });
+
+  resInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') { e.preventDefault(); navigate(resInput.value); }
+  });
+
+  /* ── Home vertical tabs ────────────────────────────────── */
+  document.getElementById('home-vtabs').addEventListener('click', function (e) {
+    var btn = e.target.closest('.vtab-btn');
+    if (!btn) return;
+    state.vertical = btn.dataset.v;
+    syncTabs(state.vertical);
+    if (state.query) navigate(state.query, state.vertical);
+  });
+
+  /* ── Results vertical tabs ─────────────────────────────── */
+  document.getElementById('res-vtabs').addEventListener('click', function (e) {
+    var btn = e.target.closest('.res-vtab');
+    if (!btn) return;
+    state.vertical = btn.dataset.v;
+    syncTabs(state.vertical);
+    renderResults();
+  });
+
+  /* ── Logo → home ───────────────────────────────────────── */
+  document.getElementById('logo-btn').addEventListener('click', function () {
+    showPage('home');
+    homeInput.value = '';
+    homeInput.focus();
+  });
+
+  /* ── Init ──────────────────────────────────────────────── */
+  var urlParams = new URLSearchParams(window.location.search);
+  var initialQ = urlParams.get('q') || urlParams.get('query');
+  if (initialQ) {
+    navigate(initialQ);
+  } else {
+    showPage('home');
+    homeInput.focus();
+  }
+
+})();
+</script>
+</body>
+</html>

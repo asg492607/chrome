@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "packetforge"
+version = "0.1.0"
+description = "A modular educational Internet Computing Platform"
+authors = [{name = "Antigravity", email = "antigravity@example.com"}]
+dependencies = [
+    "pytest>=7.0.0"
+]
+
+[project.scripts]
+packetforge = "application.packetforge:main"

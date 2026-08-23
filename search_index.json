@@ -1,0 +1,1790 @@
+{
+  "documents": {
+    "http://myblog.com/": {
+      "title": "The Packet Hacker - Blog",
+      "snippet": "The Packet Hacker - Blog The Packet Hacker Exploring low-level networking and computer systems from first principles. Recent Posts Understanding DHCP and DNS..."
+    },
+    "http://myblog.com/posts/dhcp_dns.html": {
+      "title": "DHCP & DNS Demystified",
+      "snippet": "DHCP & DNS Demystified Demystifying DHCP and DNS Protocols &larr; Back to Blog Home To understand the internet, we must understand how nodes join networks. T..."
+    },
+    "http://news.com/": {
+      "title": "Global Tech News - Home",
+      "snippet": "Global Tech News - Home Global Tech News Breaking engineering trends and software releases. TRENDING &bull; JULY 2026 Rise of Agentic Coding Teams and Gemini..."
+    },
+    "http://news.com/articles/ai_agents.html": {
+      "title": "Special Report: AI Agents",
+      "snippet": "Special Report: AI Agents The Dawn of Agentic Coding Assistants &larr; Back to News Portal In mid-2026, software development reached a turning point. Large L..."
+    }
+  },
+  "index": {
+    "packet": [
+      [
+        "http://myblog.com/",
+        0.031036440920594564
+      ],
+      [
+        "http://news.com/",
+        0.007701635339554948
+      ],
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.007453195489891885
+      ]
+    ],
+    "hacker": [
+      [
+        "http://myblog.com/",
+        0.031036440920594564
+      ],
+      [
+        "http://news.com/",
+        0.007701635339554948
+      ],
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.007453195489891885
+      ]
+    ],
+    "blog": [
+      [
+        "http://myblog.com/",
+        0.010345480306864855
+      ],
+      [
+        "http://news.com/",
+        0.007701635339554948
+      ],
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.0056815342668847975
+      ]
+    ],
+    "exploring": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "low": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "level": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "networking": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.01490639097978377
+      ],
+      [
+        "http://myblog.com/",
+        0.010345480306864855
+      ],
+      [
+        "http://news.com/",
+        0.007701635339554948
+      ]
+    ],
+    "computer": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "systems": [
+      [
+        "http://news.com/",
+        0.018828841341937855
+      ],
+      [
+        "http://myblog.com/",
+        0.012646236722197066
+      ]
+    ],
+    "from": [
+      [
+        "http://myblog.com/",
+        0.02069096061372971
+      ],
+      [
+        "http://news.com/",
+        0.007701635339554948
+      ],
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.007453195489891885
+      ]
+    ],
+    "first": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "principles": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "recent": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "posts": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "understanding": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "dhcp": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.017044602800654392
+      ],
+      [
+        "http://myblog.com/",
+        0.010345480306864855
+      ],
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.007453195489891885
+      ]
+    ],
+    "dns": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.028407671334423984
+      ],
+      [
+        "http://myblog.com/",
+        0.010345480306864855
+      ],
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.007453195489891885
+      ]
+    ],
+    "scratch": [
+      [
+        "http://myblog.com/",
+        0.012646236722197066
+      ],
+      [
+        "http://news.com/",
+        0.009414420670968928
+      ]
+    ],
+    "have": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "you": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "ever": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "wondered": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "how": [
+      [
+        "http://myblog.com/",
+        0.010345480306864855
+      ],
+      [
+        "http://news.com/",
+        0.007701635339554948
+      ],
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.0056815342668847975
+      ]
+    ],
+    "your": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "machine": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "magically": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "gets": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "ip": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.04861545100582315
+      ],
+      [
+        "http://myblog.com/",
+        0.012646236722197066
+      ]
+    ],
+    "address": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "resolves": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "domain": [
+      [
+        "http://myblog.com/",
+        0.012646236722197066
+      ],
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.006945064429403307
+      ]
+    ],
+    "names": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "server": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.02272613706753919
+      ],
+      [
+        "http://myblog.com/",
+        0.010345480306864855
+      ],
+      [
+        "http://news.com/",
+        0.007701635339554948
+      ]
+    ],
+    "ips": [
+      [
+        "http://myblog.com/",
+        0.012646236722197066
+      ],
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.006945064429403307
+      ]
+    ],
+    "when": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "booting": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "up": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "article": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "we": [
+      [
+        "http://myblog.com/",
+        0.012646236722197066
+      ],
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.006945064429403307
+      ]
+    ],
+    "build": [
+      [
+        "http://myblog.com/",
+        0.012646236722197066
+      ],
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.009110729681582833
+      ]
+    ],
+    "udp": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.013890128858806614
+      ],
+      [
+        "http://myblog.com/",
+        0.012646236722197066
+      ]
+    ],
+    "sockets": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "trace": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "packets": [
+      [
+        "http://myblog.com/",
+        0.012646236722197066
+      ],
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.006945064429403307
+      ]
+    ],
+    "visit": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "latest": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "tech": [
+      [
+        "http://myblog.com/",
+        0.025292473444394132
+      ],
+      [
+        "http://news.com/",
+        0.018828841341937855
+      ]
+    ],
+    "updates": [
+      [
+        "http://myblog.com/",
+        0.012646236722197066
+      ],
+      [
+        "http://news.com/",
+        0.009414420670968928
+      ]
+    ],
+    "global": [
+      [
+        "http://news.com/",
+        0.018828841341937855
+      ],
+      [
+        "http://myblog.com/",
+        0.012646236722197066
+      ]
+    ],
+    "news": [
+      [
+        "http://news.com/",
+        0.013061925886713758
+      ],
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00963584696560851
+      ],
+      [
+        "http://myblog.com/",
+        0.008772935297046553
+      ],
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.006320286719377625
+      ]
+    ],
+    "looking": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "something": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "try": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "asgsearch": [
+      [
+        "http://myblog.com/",
+        0.010345480306864855
+      ],
+      [
+        "http://news.com/",
+        0.007701635339554948
+      ],
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.0056815342668847975
+      ]
+    ],
+    "engine": [
+      [
+        "http://myblog.com/",
+        0.012646236722197066
+      ],
+      [
+        "http://news.com/",
+        0.009414420670968928
+      ]
+    ],
+    "copyright": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "copy": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "2026": [
+      [
+        "http://myblog.com/",
+        0.010345480306864855
+      ],
+      [
+        "http://news.com/",
+        0.007701635339554948
+      ],
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.007453195489891885
+      ]
+    ],
+    "built": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "raw": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "html": [
+      [
+        "http://myblog.com/",
+        0.016397198338329998
+      ]
+    ],
+    "demystified": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "demystifying": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "protocols": [
+      [
+        "http://news.com/",
+        0.009414420670968928
+      ],
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.006945064429403307
+      ]
+    ],
+    "larr": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.009110729681582833
+      ],
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.006945064429403307
+      ]
+    ],
+    "back": [
+      [
+        "http://news.com/",
+        0.007701635339554948
+      ],
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.007453195489891885
+      ],
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.0056815342668847975
+      ]
+    ],
+    "home": [
+      [
+        "http://news.com/",
+        0.009414420670968928
+      ],
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.006945064429403307
+      ]
+    ],
+    "understand": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.01801003751914934
+      ]
+    ],
+    "internet": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "must": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "nodes": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "join": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "networks": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "happens": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "two": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "steps": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "1": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.01801003751914934
+      ]
+    ],
+    "handshake": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.01801003751914934
+      ]
+    ],
+    "dora": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.01801003751914934
+      ]
+    ],
+    "before": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "client": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.03602007503829868
+      ]
+    ],
+    "can": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.018221459363165667
+      ],
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.006945064429403307
+      ]
+    ],
+    "send": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "needs": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "leased": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "sends": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "broadcast": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.01801003751914934
+      ]
+    ],
+    "searching": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "discover": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "offer": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "proposed": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "request": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "claim": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "ack": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "confirm": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "lease": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "four": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "way": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "called": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "2": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "translator": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "computers": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "communicate": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "via": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "addresses": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "like": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.02083519328820992
+      ],
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.009110729681582833
+      ]
+    ],
+    "127": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "0": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.01801003751914934
+      ]
+    ],
+    "but": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "humans": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "prefer": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "domains": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.01801003751914934
+      ]
+    ],
+    "local": [
+      [
+        "http://news.com/",
+        0.015403270679109895
+      ],
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.007453195489891885
+      ],
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.0056815342668847975
+      ]
+    ],
+    "translates": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "over": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "port": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.02701505627872401
+      ]
+    ],
+    "53": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "queries": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "returns": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.01801003751914934
+      ]
+    ],
+    "record": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "once": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "browser": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.009110729681582833
+      ],
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.006945064429403307
+      ]
+    ],
+    "opens": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "tcp": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "socket": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.009110729681582833
+      ],
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.006945064429403307
+      ]
+    ],
+    "connection": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "80": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "443": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "proxy": [
+      [
+        "http://news.com/",
+        0.009414420670968928
+      ],
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.006945064429403307
+      ]
+    ],
+    "8080": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "fetch": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "website": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "payload": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "read": [
+      [
+        "http://news.com/",
+        0.009414420670968928
+      ],
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.006945064429403307
+      ]
+    ],
+    "about": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "other": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "technology": [
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.00900501875957467
+      ]
+    ],
+    "portal": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.009110729681582833
+      ],
+      [
+        "http://myblog.com/posts/dhcp_dns.html",
+        0.006945064429403307
+      ]
+    ],
+    "breaking": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "engineering": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "trends": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "software": [
+      [
+        "http://news.com/",
+        0.018828841341937855
+      ],
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.009110729681582833
+      ]
+    ],
+    "releases": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "trending": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "bull": [
+      [
+        "http://news.com/",
+        0.024413606414846883
+      ]
+    ],
+    "july": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "rise": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "agentic": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.018221459363165667
+      ],
+      [
+        "http://news.com/",
+        0.009414420670968928
+      ]
+    ],
+    "coding": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.018221459363165667
+      ],
+      [
+        "http://news.com/",
+        0.009414420670968928
+      ]
+    ],
+    "teams": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "gemini": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "3": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "5": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "autonomous": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "ai": [
+      [
+        "http://news.com/",
+        0.009414420670968928
+      ],
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.009110729681582833
+      ]
+    ],
+    "are": [
+      [
+        "http://news.com/",
+        0.036620409622270325
+      ]
+    ],
+    "writing": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "complete": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "codebases": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "pair": [
+      [
+        "http://news.com/",
+        0.009414420670968928
+      ],
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.009110729681582833
+      ]
+    ],
+    "programming": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "developers": [
+      [
+        "http://news.com/",
+        0.018828841341937855
+      ],
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.009110729681582833
+      ]
+    ],
+    "testing": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "network": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "live": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "special": [
+      [
+        "http://news.com/",
+        0.009414420670968928
+      ],
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.009110729681582833
+      ]
+    ],
+    "report": [
+      [
+        "http://news.com/",
+        0.009414420670968928
+      ],
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.009110729681582833
+      ]
+    ],
+    "agents": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.027332189044748496
+      ],
+      [
+        "http://news.com/",
+        0.009414420670968928
+      ]
+    ],
+    "changing": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "landscape": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "release": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "custom": [
+      [
+        "http://news.com/",
+        0.009414420670968928
+      ],
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.009110729681582833
+      ]
+    ],
+    "nginx": [
+      [
+        "http://news.com/",
+        0.024413606414846883
+      ]
+    ],
+    "reverse": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "deploying": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "lightweight": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "python": [
+      [
+        "http://news.com/",
+        0.009414420670968928
+      ],
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.009110729681582833
+      ]
+    ],
+    "based": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "clones": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "run": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "customized": [
+      [
+        "http://news.com/",
+        0.009414420670968928
+      ],
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.009110729681582833
+      ]
+    ],
+    "host": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "routing": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "bypassing": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "heavy": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "configurations": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "personal": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "developer": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "stacks": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "improves": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "security": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "keeps": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "telemetry": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "search": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "topics": [
+      [
+        "http://news.com/",
+        0.012206803207423442
+      ]
+    ],
+    "dawn": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "assistants": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "mid": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "development": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "reached": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "turning": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "point": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "large": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "language": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "models": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "evolved": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "basic": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "chat": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "boxes": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "into": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "fully": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "programmers": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "capable": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "reading": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "workspace": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "trees": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "managing": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "file": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "replacements": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "compiling": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "running": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "diagnostics": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "navigate": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "complex": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "pipelines": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "servers": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "write": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.023626070724045375
+      ]
+    ],
+    "layout": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "parsers": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "fly": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "allows": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "rapid": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "prototyping": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "instead": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "relying": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "monolithic": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "frameworks": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "electron": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "chromium": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "collaborate": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "viewport": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "code": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "pure": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "keeping": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "footprints": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "small": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "learning": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "outcomes": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "high": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "learn": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "basics": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ],
+    "guide": [
+      [
+        "http://news.com/articles/ai_agents.html",
+        0.011813035362022687
+      ]
+    ]
+  }
+}
